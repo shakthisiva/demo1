@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .booking-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .booking-form h2 {
+            margin-bottom: 20px;
+        }
+        .booking-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .booking-form input, .booking-form select, .booking-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .booking-form button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .booking-form button:hover {
+            background-color: #218838;
+        }
+        .total-amount {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="booking-form">
+    <h2>Bus Ticket Booking</h2>
+    <form id="ticketForm">
+       
+
+        <label for="contact">Contact Number:</label>
+        <input type="text" id="contact" name="contact" required>
+
+        <label for="source">Source:</label>
+        <select id="source" name="source" required>
+            <option value="CityA">KANGAYAM</option>
+            <option value="CityB">OOTY</option>
+            <option value="CityC">PALANI</option>
+            <option value="CityC">ERODE</option>
+            <option value="CityC">HOSUR</option>
+            <option value="CityC">COIMBATORE</option>
+        </select>
+
+        <label for="destination">Destination:</label>
+        <select id="destination" name="destination" required>
+            <option value="CityX">CHENNAI</option>
+            <option value="CityY">TENKASI</option>
+            <option value="CityZ">BANGALORE</option>
+            <option value="CityZ">KANYAKUMARI-</option>
+            <option value="CityZ">KODAIKANAL</option>
+            <option value="CityZ">KOLLIMALAI</option>
+        </select>
+
+        <label for="tickets">Number of Tickets:</label>
+        <input type="number" id="tickets" name="tickets" min="1" required>
+
+        <button type="button" onclick="calculateAmount()">Calculate Total</button>
+
+        <div class="total-amount" id="totalAmount"></div>
+    </form>
+</div>
+
+<script>
+    function calculateAmount() {
+        const ticketPrice = 2500; // Set ticket price per seat
+        const numberOfTickets = document.getElementById('tickets').value;
+        const totalAmount = ticketPrice * numberOfTickets;
+        document.getElementById('totalAmount').innerHTML = "Total Amount: ₹" + totalAmount;
+    }
+</script>
+
+</body>
+</html>
